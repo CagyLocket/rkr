@@ -1,0 +1,147 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+{% load icon %}
+
+{% block title %} User Profile {% endblock title %}
+
+<!-- Specific CSS goes HERE  -->
+{% block stylesheets %}
+
+<style type="text/css">
+
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+.account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+.account-settings .about h5 {
+    margin: 0 0 15px 0;
+    color: #007ae1;
+}
+.account-settings .about p {
+    font-size: 0.825rem;
+}
+.form-control {
+    border: 1px solid #cfd1d8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: .825rem;
+    background: #ffffff;
+    color: #2e323c;
+}
+
+.card {
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+}
+
+</style>
+
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<br>
+
+<div class="conainer ml-3 mb-5">
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-lg">
+    <li class="page-item">
+      <a class="page-link" href="{% url 'dashboard:index' %}" aria-label="Previous" style="text-decoration: none; color: #5bc0de; ">
+        <span aria-hidden="true"><span class="mr-1">
+            <!-- <i class="c-blue-500 ti-home"></i> -->
+            <i> {% icon 'arrow-left-circle' class="" height="16" width="16" %}</i>
+          </span>Panel</span>
+      </a>
+    </li>
+    <li class="page-item"><a style="text-decoration: none; color: " class="page-link text-secondary" >Uwagi</a></li>
+        <li class="page-item">
+      <a class="page-link" href="{% url 'demo:t01_siedlisko' %}" aria-label="Next" style="text-decoration: none; color: #5bc0de;">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+
+<!-- Section: User Profile Forms -->
+<section>
+<div class="container-fluid">
+<div class="row gutters">
+
+<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 offset-md-2">
+<div class="card h-100">
+  <div class="card-body">
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mb-2 text-info">Uwagi do inwentaryzacji majątku</h5>
+      </div>
+
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <p>
+           Do ustalenia dokonań gospodarowania potrzebne jest określenie wartości majątku gospodarstwa wiejskiego, poprzez zrobienie dwóch „fotografii”: na początku i na końcu okresu obrachunkowego. Taka „fotografia” to bilans majątkowy, który ma odpowiedzieć na pytanie: ile wart jest majątek gospodarstwa i jaka jego część jest Twoja na początek i na koniec okresu obrachunkowego. Z jednej strony jest to uporządkowane zestawienie wartości poszczególnych składników gospodarstwa, a z drugiej – źródeł ich finansowania, czyli ile należy do Ciebie, a ile do banku – jeżeli nie spłaciłeś jeszcze zaciągniętego kredytu.
+        </p>
+        <p>
+               Majątek gospodarstwa (aktywa) dzieli się na majątek trwały i obrotowy. Przyjęto, że bilans układa się począwszy od składników najbardziej trwałych (ziemia) do najbardziej płynnych (gotówka). W tej kolejności staraliśmy się uszeregować tabelki do wyceny poszczególnych składników majątkowych. W naszym przypadku muszą być sporządzone cztery bilanse. W tabelach znajduje się miejsce na wpisanie stanu na początek – 01.01.2013 – (te wypełniaj teraz) i kolejne okresy – 30.06.2013 oraz 31.12.2013, które wypełnisz później. Mając wartości na tej samej stronie łatwiej ocenisz zachodzące zmiany. Chcemy również oszczędzić Twój czas i wykorzystać bilans majątkowy do ustalenia wielkości amortyzacji rocznej. Jak zapewne wiesz, amortyzacja to specyficzny koszt kalkulacyjny – koszt zużycia środków trwałych. Większość składników majątku trwałego zużywa się, ale jest to zużycie stopniowe, nie jednorazowe, jak środków obrotowych. Mówi się, że ich wartość przenoszona jest na wytworzoną produkcję. Jeśli tak, to trzeba obciążyć produkcję kosztami tego zużycia, a więc najpierw określić koszty w pieniądzu.
+        </p>
+        <p>
+          Do środków trwałych zalicza się grunty, budynki, budowle, urządzenia, maszyny, środki transportu i inne trwałe składniki majątku, których koszt nabycia lub wytworzenia jest wyższy niż 3500 zł. Nie obejmujemy rachunkiem amortyzacji przedmiotów, np. narzędzi, które są używane przez wiele lat, ale ich wartość początkowa była mniejsza niż 3500 zł. Te będziemy wliczali bezpośrednio w koszty, tak jak środki obrotowe. Amortyzacji nie naliczamy także od gruntów i od stada podstawowego inwentarza żywego, bo ziemia dobrze użytkowana nie powinna tracić na wartości, a koszty reprodukcji stada są ponoszone na bieżąco. Nie obciążamy podstawowej (operacyjnej) działalności gospodarstwa rolniczego kosztem (ratą amortyzacji) zużycia domu, w którym mieszkasz z rodziną – zaliczymy go do kosztów gospodarstwa domowego.
+        </p>
+        <p>
+          Czeka Cię więc inwentaryzacja. Musisz ją zrobić najpierw według stanu na początek, a następnie dla kolejnych okresów obrachunkowych. Zadanie jest pracochłonne. Będzie to kilkanaście tabel, które należy wypełniać sukcesywnie. Pod tabelami znajdziesz więcej wskazówek.
+        </p>
+        <p class="font-weight-bold">
+          Życzymy wytrwałości!
+        </p>
+      
+      </div>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<br><br>
+
+
+
+
+            
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

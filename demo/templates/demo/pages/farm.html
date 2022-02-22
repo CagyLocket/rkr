@@ -1,0 +1,257 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+{% load icon %}
+
+{% block title %} Gospodarstwo rolne {% endblock title %}
+
+<!-- Specific CSS goes HERE  -->
+{% block stylesheets %}
+
+ <!-- Google material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style type="text/css">
+
+.nav-link-color {
+    color: #5bc0de;
+
+  }
+
+.card-category{
+  max-width: 540px; 
+  height: 150px;
+  border-radius: 25px;
+
+}
+
+
+
+
+
+
+  </style>
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<br>
+
+<div class="conainer ml-3 mb-5">
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-lg">
+    <li class="page-item">
+      <a class="page-link" href="{% url 'dashboard:index' %}" aria-label="Previous" style="text-decoration: none; color: #5bc0de; ">
+        <span aria-hidden="true"><span class="mr-1">
+            <!-- <i class="c-blue-500 ti-home"></i> -->
+            <i> {% icon 'arrow-left-circle' class="" height="16" width="16" %}</i>
+          </span>Panel</span>
+      </a>
+    </li>
+    <li class="page-item"><a style="text-decoration: none; color: " class="page-link text-secondary" >Gospodarstwo rolne</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+
+
+<!-- Start Section for Categories -->
+<section>
+<div class="container-fluid">
+<div class="row gutters">
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+<!-- Start card-category -->
+<div class="card mb-2 card-category">
+  <a href="{% url 'dashboard:user_profile' %}" style="text-decoration: none;">
+  <div class="row no-gutters">
+    <div class="col-md-3 col-sm-3 text-center align-middle" style="margin-top:40px;">
+      <span class="">
+            <i class="nav-link-color"> {% icon 'users' class="c-black-500" height="58" width="58" %}</i>
+          </span>
+    </div>
+    <div class="col-md-9 col-sm-9 ">
+      <div class="card-body mt-2">
+        <h2 class="card-title text-dark">Użytkownicy</h2>
+        <div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><i> {% icon 'check_circle' class="c-green-500" height="20" width="20" %}</i></li>
+            <li class="list-inline-item text-secondary" style="font-size: 1.1rem;">{{ request.user }}</li>
+          </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</a>
+</div>
+<!-- End card-cateogry -->
+</div>
+
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+<!-- Start card-category -->
+<div class="card mb-2 card-category">
+  <a href="" style="text-decoration: none;">
+  <div class="row no-gutters">
+    <div class="col-sm-3 col-md-3 text-center align-middle" style="margin-top:40px;">
+      <span class="">
+            <i class="nav-link-color"> {% icon 'grid' class="c-black-500" height="58" width="58" %}</i>
+          </span>
+    </div>
+    <div class="col-sm-9 col-md-9">
+      <div class="card-body mt-2">
+        <h2 class="card-title text-dark">Gospodarstwa</h2>
+
+<!-- implement if-statment to create a farm or show the already created one-->
+<!--         <div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><i> {% icon 'check_circle' class="c-green-500" height="20" width="20" %}</i></li>
+            <li class="list-inline-item text-secondary" style="font-size: 1.1rem;">Gospodarstwo rolne</li>
+            <li class="list-inline-item text-secondary ml-4" style="font-size: 1.1rem;">Jan Nowak</li>
+            </ul>
+      </div> -->
+
+      <div>
+        <button type="button" id="submit" name="submit" class="btn btn-sm btn-outline-success">Dodaj<i> {% icon 'plus_circle' class="c-white-500" height="16" width="16" %}</i></button>
+      </div> 
+
+
+      </div>
+    </div>
+  </div>
+</a>
+</div>
+<!-- End card-cateogry -->
+</div>
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+<!-- Start card-category -->
+<div class="card mb-2 card-category">
+  <a href="" style="text-decoration: none;">
+  <div class="row no-gutters">
+    <div class="col-sm-3 col-md-3 text-center align-middle" style="margin-top:40px;">
+      <span class="">
+            <i class="nav-link-color"> {% icon 'list' class="c-black-500" height="58" width="58" %}</i>
+          </span>
+    </div>
+    <div class="col-sm-9 col-md-9">
+      <div class="card-body mt-2">
+        <h2 class="card-title text-dark">Moje zadania</h2>
+
+<!-- implement if-statment to create a farm or show the already created one-->
+<!--         <div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><i> {% icon 'check_circle' class="c-green-500" height="20" width="20" %}</i></li>
+            <li class="list-inline-item text-secondary" style="font-size: 1.1rem;">Gospodarstwo rolne</li>
+            <li class="list-inline-item text-secondary ml-4" style="font-size: 1.1rem;">Jan Nowak</li>
+            </ul>
+      </div> -->
+
+      <div>
+        <button type="button" id="submit" name="submit" class="btn btn-sm btn-outline-success">Nowe zadanie<i> {% icon 'plus_circle' class="c-white-500" height="16" width="16" %}</i></button>
+      </div> 
+
+
+      </div>
+    </div>
+  </div>
+</a>
+</div>
+<!-- End card-cateogry -->
+</div>
+
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+<!-- Start card-category -->
+<div class="card mb-2 card-category">
+  <a href="" style="text-decoration: none;">
+  <div class="row no-gutters">
+    <div class="col-sm-3 col-md-3 text-center align-middle" style="margin-top:40px;">
+      <span class="">
+            <i class="nav-link-color"> {% icon 'calendar' class="c-black-500" height="58" width="58" %}</i>
+          </span>
+    </div>
+    <div class="col-sm-9 col-md-9">
+      <div class="card-body mt-2">
+        <h2 class="card-title text-dark">Kalendarz</h2>
+
+<!-- implement if-statment to create a farm or show the already created one-->
+<!--         <div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><i> {% icon 'check_circle' class="c-green-500" height="20" width="20" %}</i></li>
+            <li class="list-inline-item text-secondary" style="font-size: 1.1rem;">Gospodarstwo rolne</li>
+            <li class="list-inline-item text-secondary ml-4" style="font-size: 1.1rem;">Jan Nowak</li>
+            </ul>
+      </div> -->
+
+      <div>
+        <button type="button" id="submit" name="submit" class="btn btn-sm btn-outline-success">Nowy termin<i> {% icon 'plus_circle' class="c-white-500" height="16" width="16" %}</i></button>
+      </div> 
+
+
+      </div>
+    </div>
+  </div>
+</a>
+</div>
+<!-- End card-cateogry -->
+</div>
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+<!-- Start card-category -->
+<div class="card mb-2 card-category">
+  <a href="" style="text-decoration: none;">
+  <div class="row no-gutters">
+    <div class="col-sm-3 col-md-3 text-center align-middle" style="margin-top:40px;">
+      <span class="">
+            <i class="nav-link-color"> {% icon 'mail' class="c-black-500" height="58" width="58" %}</i>
+          </span>
+    </div>
+    <div class="col-sm-9 col-md-9">
+      <div class="card-body mt-2">
+        <h2 class="card-title text-dark">Wiadomości</h2>
+
+<!-- implement if-statment to create a farm or show the already created one-->
+<!--         <div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><i> {% icon 'check_circle' class="c-green-500" height="20" width="20" %}</i></li>
+            <li class="list-inline-item text-secondary" style="font-size: 1.1rem;">Gospodarstwo rolne</li>
+            <li class="list-inline-item text-secondary ml-4" style="font-size: 1.1rem;">Jan Nowak</li>
+            </ul>
+      </div> -->
+
+      <div>
+        <button type="button" id="submit" name="submit" class="btn btn-sm btn-outline-success">Napisz<i> {% icon 'plus_circle' class="c-white-500" height="16" width="16" %}</i></button>
+      </div> 
+
+
+      </div>
+    </div>
+  </div>
+</a>
+</div>
+<!-- End card-cateogry -->
+</div>
+
+
+
+
+
+</div>
+</div><!-- End of container -->
+</section>
+<!-- End Section for Categories -->
+
+
+
+
+
+     
+            
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

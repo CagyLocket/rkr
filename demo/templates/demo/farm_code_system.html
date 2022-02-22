@@ -1,0 +1,945 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+{% load icon %}
+
+{% block title %} Farm's Identification Data {% endblock title %}
+
+<!-- Specific CSS goes HERE  -->
+{% block stylesheets %}
+
+<style type="text/css">
+
+
+
+</style>
+
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<br>
+
+<div class="conainer ml-3 mb-5">
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-lg">
+    <li class="page-item">
+      <a class="page-link" href="{% url 'demo:farm_id_data' %}" aria-label="Previous" style="text-decoration: none; color: #5bc0de; ">
+        <span aria-hidden="true"><span class="mr-1">
+            <!-- <i class="c-blue-500 ti-home"></i> -->
+            <i> {% icon 'arrow-left-circle' class="" height="16" width="16" %}</i>
+          </span>Gospodarstwo rolne</span>
+      </a>
+    </li>
+    <li class="page-item"><a style="text-decoration: none; color: " class="page-link text-secondary" >System kodów</a></li>
+            <li class="page-item">
+      <a class="page-link" href="{% url 'demo:t00_uwagi' %}" aria-label="Next" style="text-decoration: none; color: #5bc0de;">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+
+
+
+<!-- Section: Farm's Code System Form -->
+<section>
+<div class="container-fluid">
+<div class="row gutters">
+
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+<div class="card h-100">
+  <div class="card-body">
+
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mb-2 text-info">AKTYWA BIOLOGICZNE - uprawy i produkty roślinne</h5>
+      </div>
+
+      <!-- Start Input group for 1 entry --> 
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr5">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr6">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr7">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr91">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr92">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr93">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pr94">
+
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+        </div>
+      </div>
+      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Przenżyto oz">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Jęczmień jary">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Owies">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pszenica">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Słoma">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Sianokiszonka">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Siano">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Kiszonka z kukurydzy">
+
+        </div>
+      </div>
+      <!-- End Input group for 1 entry -->
+
+    </div>
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-success">Dodaj</button>
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">AKTYWA BIOLOGICZNE - produkty zwierzęce</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pz1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pz2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pz3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pz4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pz5">
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          
+        </div>
+      </div>
+      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Mleko krowie">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">AKTYWA BIOLOGICZNE - zwierzęta</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="psz1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="psz2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="psz3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="psz4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="psz5">
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+        </div>
+      </div>
+      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Krowy mleczne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Jałówki cielne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Jałówki od 6 do 18 msc">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Cielęta do 6 msc">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Bydło opasowe">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Pozostałe wpłaty operacyjne</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pp1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pp2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pp3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pp4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="pp5">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Dopłaty do kosztów działalności operacyjnej">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="ONW, JPO, UPO, PRŚ, mleko, zalesienie, klęski żywiołowe, inne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Usługi na zewnątz">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Inne operacyjne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pozostałe przychody (czynsze, odsetki, odszkodowania i inne)">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+
+<!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wpłaty z działalności inwestycyjnej</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="i1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="i2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="i3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="i4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Z tytułu nowego kredytu długoterminowego">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Z tytułu nowego nowych pozostałych zobowiązań długoterminowych">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Z tytułu nowego kredytu krótkoterminowego">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Z tytułu nowych pozostałych zobowiązań krótkoterminowych">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+
+
+<!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wpłaty z działalności domowej</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="d1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="d2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="d3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="d4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="d5">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pensja i inne GD">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Extra przekazane na dom">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Nowy prywatny dług">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Sprzedaż majątku prywatnego">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+
+<!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wypłaty na zakup zwierząt</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kzz1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kzz2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kzz3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kzz4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kzz5">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+        
+
+
+  </div>
+</div>
+</div>
+
+
+
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+<div class="card h-100">
+  <div class="card-body">
+
+      <!-- Start Group -->
+        <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class=" mb-2 text-info">Wypłaty z tyt. kosztów bezpośrednich produkcji roślinnej</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kr1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kr2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kr3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kr4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kr5">
+           <input type="text" class="form-control mb-3" id="firstName" placeholder="kr6">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kr7">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="5%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Nasiona i sadzeniaki">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Nawozy">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Środki ochrony roślin">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Koszty specjalistyczne produkcji roślinnej">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Usługi specjalistyczne do produkcji roślinnej">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Koszty ubezpieczenia upraw">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pozostałe koszty bezpośrednie produkcji roślinnej">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+
+
+<!-- Start Group -->
+        <div class="row gutters mt-4">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+        <h5 class="mt-3 mb-2 text-info">Wypłaty z tyt. kosztów bezpośrednich produkcji zwierzęcej</h5>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kz1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kz2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kz3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kz4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kz5">
+           <input type="text" class="form-control mb-3" id="firstName" placeholder="kz6">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pasze treściwe i koncentraty">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pozostałe pasze z zakupu">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Leki, usługi wet. i inseminacyjne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pozostałe usługi specjalistyczne do prod.zwierzęcej">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Koszty ubezpieczenia zwierząt">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Pozostałe koszty bezpośrednie prod. zwierzęcej">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+    <!-- End Group -->
+
+
+
+
+
+<!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wypłaty z tyt. kosztów pośrednich</h5>
+      </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp01">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp02">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp03">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp04">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp05">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp06">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp07">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp08">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp09">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp10">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp10_0">
+
+          
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="8%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Energia elektryczna">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Materiały opałowe">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Materiały pędne, smary i inne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Usługi rolnicze">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Części zamienne i drobny sprzęt">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Remonty maszyn i przeglądy">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Ubezpieczenie komunikacyjne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Ubezpieczenie majatkowe">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Remonty budynków i budowli">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Poz. koszty ogólnogosp.(mat. Biurowe, usługi admin.)">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Poz. koszty ogólnogosp.(VAT-0, KRUS, prowizje i opłaty bankowe)">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+
+
+
+    <!-- End Group -->
+
+
+<!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wypłaty z tyt. kosztów publiczno-prawnych /podatkowe/</h5>
+      </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp21">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp22">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp23">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp24">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Podatek rolny i leśny">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Podatek drogowy">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="odatek od nieruchomości">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Podatek od działów specjalnych">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+
+
+
+    <!-- End Group -->
+
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wypłaty z tyt. kosztów czynników zewnętrznych</h5>
+      </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp31">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp32">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="kp33">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Koszt pracy najemnej">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Czynsze dzierżawne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Odsetki">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+
+
+
+    <!-- End Group -->
+
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wypłaty na  inwestycje</h5>
+      </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wi1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wi2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wi3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wi4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="0%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="23%">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Na ziemię">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Na budynki i budowle">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Na maszyny i urządzenia">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Inne wydatki inwestycyjne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+
+    <!-- End Group -->
+
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wypłaty z dzialalności finansującej</h5>
+      </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wf1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wf2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wf3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wf4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Spłata kredytów długoterminowych">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Spłata pozostałych zobowiązań długoterminowych">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Spłata kredytów krótkoterminowych">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Spłata pozostałych zobowiązań krótkoterminowych">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+
+    <!-- End Group -->
+
+
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">Wypłaty na działalność prywatną</h5>
+      </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wd1">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wd2">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wd3">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="wd4">
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="n/a">
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Na dom (GD)">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Extra pobrania prywatne">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Spłaty prywatnego długu">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="Inwestycje w prywatny majątek trwały">
+          <input type="text" class="form-control mb-3" id="phone" placeholder="">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+
+    <!-- End Group -->
+
+
+
+    <!-- Start Group -->
+        <div class="row gutters mt-4">
+          <div class="breadcrumb container-fluid mr-0 pr-0"></div>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mt-3 mb-2 text-info">VAT</h5>
+      </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="firstName">Kod</label>
+          <input type="text" class="form-control mb-3" id="firstName" placeholder="v">
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+        <div class="form-group">
+          <label for="lastName">Stawka VAT</label>
+          <input type="text" class="form-control mb-3" id="lastNname" placeholder="">
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+        <div class="form-group">
+          <label for="phone">Pozycja</label>
+          <input type="text" class="form-control mb-3" id="phone" placeholder="VAT">
+        </div>
+      </div>
+
+    </div>
+
+  <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div> 
+
+    <!-- End Group -->
+
+
+
+
+
+  </div>
+</div>
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

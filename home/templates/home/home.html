@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+	.my-grid{
+		border: 1px solid black;
+	}
+	.my-grid-item{
+		border: 1px solid blue;
+	}
+</style>
+
+<br><br><br><br>
+
+<!-- Intro jumbotron -->
+<div class="container">
+	<div class="jumbotron bg-white">
+  <h1 class="display-4">Rolniczy Kalendarz Rachunkowy (RKR)</h1>
+  <p class="lead">Twoje narzędzie do ewidencji, planowania i kontroli w gospodarstwie wiejskim.</p>
+  <hr class="my-4">
+  <p>Niniejsza strona to implementacja RKR w wersji demo w ramach pracy dyplomowej pt.: "Przeniesienie funkcjonalności Rolniczego Kalendarza Rachunkowego do aplikacji webowej ".</p>
+  <p>Praca dyplomowa została wykonana pod kierunkiem dra. inż. Tomasza Kondraszuka.</p>
+  <p class="mt-0 mb-0">Szkoła Główna Gospodarstwa Wiejskiego w Warszawie</p>
+  <p>Wydział Rolnictwa i Biologii</p>
+  <p class="mt-0 mb-0">Instytut Ekonomii i Finansów
+  <p class="mt-0 mb-0">Katedra Ekonomiki i Organizacji Przedsiębiorstw</p>
+  <p class="mt-0 mb-4">Zakład Ekonomiki Podmiotów Gospodarczych</p>
+  <p class="lead">
+    <a class="btn btn-info btn-lg mr-3" href="{% url 'authenticate:login' %}" role="button">Zaloguj się</a>
+  </p>
+</div>
+</div> <!-- end of container -->
+
+{% endblock content %}

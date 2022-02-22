@@ -1,0 +1,413 @@
+{% load static %}
+{% load icon %}
+<!-- #Left Sidebar ==================== -->
+<div class="sidebar">
+  <div class="sidebar-inner">
+    <!-- ### $Sidebar Header ### -->
+    <div class="sidebar-logo">
+      <div class="peers ai-c fxw-nw">
+        <div class="peer peer-greed">
+          <a class="sidebar-link td-n" href="{% url 'dashboard:index' %}">
+            <div class="peers ai-c fxw-nw">
+              <div class="peer">
+                <div class="logo" >
+                  <img src="{% static 'dummy_images/python.jpeg' %}" alt="" style="height: 40px; width: 40px; margin-top: 10px; margin-left: 15%;">
+                </div>
+              </div>
+              <div class="peer peer-greed">
+                <h5 class="lh-1 mB-0 logo-text">RKR demo</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="peer">
+          <div class="mobile-toggle sidebar-toggle">
+            <a href="" class="td-n">
+              <i class="ti-arrow-circle-left"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ### $Sidebar Menu ### -->
+    <ul class="sidebar-menu scrollable pos-r">
+      <li class="nav-item mT-30 actived">
+        <a class="sidebar-link" href="{% url 'dashboard:index' %}">
+          <span class="icon-holder mb-3">
+            <!-- <i class="c-blue-500 ti-home"></i> -->
+            <i> {% icon 'home' class="c-blue-500" height="18" width="18" %}</i>
+          </span>
+          <span class="title mt-1 pt-2">Panel</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="sidebar-link" href="{% url 'demo:farmer_id_data' %}">
+          <span class="icon-holder">
+            <i> {% icon 'user' class="c-blue-500" height="18" width="18" %}</i>
+          </span>
+          <span class="title">Rolnik</span>
+        </a>
+      </li>
+
+
+    <li class="nav-item dropdown">
+      <a class="dropdown-toggle" href="javascript:void(0);">
+        <span class="icon-holder">
+          <i> {% icon 'grid' class="c-blue-500" height="18" width="18" %}</i>
+        </span>
+        <span class="title">Gospodarstwo rolne</span>
+        <span class="arrow">
+         <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+       </span>
+     </a>
+     <ul class="dropdown-menu">
+      <li>
+        <a class="sidebar-link" href="{% url 'demo:farm_id_data' %}">Dane identyfikacyjne</a>
+      </li>
+            <li>
+        <a class="sidebar-link" href="{% url 'demo:farm_code_system' %}">System kodów</a>
+      </li>
+</ul>
+</li> 
+
+
+<!-- Start Section Level 1 -->
+<li class="nav-item dropdown">
+  <a class="dropdown-toggle" href="javascript:void(0);">
+    <span class="icon-holder">
+      <i> {% icon 'box' class="c-blue-500" height="18" width="18" %}</i>
+    </span>
+    <span class="title">Majątek trwały</span>
+    <span class="arrow">
+     <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+   </span>
+ </a>
+ <ul class="dropdown-menu">
+
+  <!-- Start Dropdown link -->
+  <li class="nav-item dropdown">
+    <a class="dropdown-toggle" href="javascript:void(0);">
+      <span class="title">Ogólne</span>
+      <span class="arrow">
+       <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+     </span>
+   </a>
+   <ul class="dropdown-menu">
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t00_uwagi' %}">T00. Uwagi</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t01_siedlisko' %}">T01. Siedlisko</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t02_szkic_pol' %}">T02. Szkic pól gospodarstwa</a>
+    </li>
+  </ul>
+</li> 
+<!-- End Dropdown link -->
+
+  <!-- Start Dropdown link -->
+  <li class="nav-item dropdown">
+    <a class="dropdown-toggle" href="javascript:void(0);">
+      <span class="title">Aktywa</span>
+      <span class="arrow">
+       <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+     </span>
+   </a>
+   <ul class="dropdown-menu">
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t1_1_opis_ziemi_wlasnej' %}">T1.1. Ziemia własna</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t1_2_opis_ziemi_dzierzawionej' %}">T1.2. Ziemia dzierżawiona</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t1_3_ziemia_jakosc_i_uzytkowanie' %}">T1.3. Ziemia - jakość i użytkowanie</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t1_4_melioracje' %}">T1.4. Melioracje</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t1_5_sady_inne_plantacje' %}">T1.5. Sady i inne plantacje</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t1_6_lasy_i_zadrzewienia' %}">T1.6. Lasy i zadrzewienia</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="{% url 'demo:t2_wartosci_niemat_i_prawne' %}">T2. Wartości niematerialne i prawne </a>
+    </li>
+
+    <!-- pages not done yet 
+    <li>
+      <a class="sidebar-link" href="">T3. Budynki i budowle</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T4. Nowe inwestycje</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T5.1. Maszyny i urządzenia</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T5.2. Środki transportu [PLN]</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T6. Środki transportu</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T7. Zakończone ulepszenia w obcych środkach trwałych</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T8. Finansowy majątek trwały></a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T9.1. Rzeczowy majątek trwały (BiT)</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T9.2. Rzeczowy majątek trwały (KiO)</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T10.1. Stany zwierząt gospd. - bydło, trzoda chlewna (BiT)</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T10.2. Stany zwierząt gospd. - bydło, trzoda chlewna (KiO)</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T10.3. Stany zwierząt gospd. - owce, drób i pozostałe (BiT)</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T10.4. Stany zwierząt gospd. - owce, drób i pozostałe (KiO)</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T11.1. Obroty stada zwierząt godsp.</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T12.1 Długoterminowe rozliczenia okresowe [PLN]</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T12.2. Zobowiązania gosp. rolniczego i domowego [PLN]</a>
+    </li>
+  -->
+
+
+  </ul>
+</li> 
+<!-- End Dropdown link -->
+
+  <!-- Start Dropdown link -->
+  <li class="nav-item dropdown">
+    <a class="dropdown-toggle" href="javascript:void(0);">
+      <span class="title">Pasywa</span>
+      <span class="arrow">
+       <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+     </span>
+   </a>
+   <ul class="dropdown-menu">
+    <li>
+      <a class="sidebar-link" href="">T13.1. Długoterminowe rozliczenia międzyokresowe</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">T13.2. Zob. długoterm. gosp. rolniczego i domowego</a>
+    </li>
+  </ul>
+</li> 
+<!-- End Dropdown link -->
+
+</ul>
+</li> 
+<!-- End Section Level 1 -->
+
+
+<!-- Start Section level 1 -->
+<li class="nav-item dropdown">
+  <a class="dropdown-toggle" href="javascript:void(0);">
+    <span class="icon-holder">
+      <i> {% icon 'box' class="c-blue-500" height="18" width="18" %}</i>
+    </span>
+    <span class="title">Aktywa obrotowe</span>
+    <span class="arrow">
+     <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+   </span>
+ </a>
+ <ul class="dropdown-menu">
+
+  <!-- Start Dropdown link -->
+  <li class="nav-item dropdown">
+    <a class="dropdown-toggle" href="javascript:void(0);">
+      <span class="title">Section Level 2</span>
+      <span class="arrow">
+       <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+     </span>
+   </a>
+   <ul class="dropdown-menu">
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+  </ul>
+</li> 
+<!-- End Dropdown link -->
+
+<li>
+  <a class="sidebar-link" href="">Section level 2</a>
+</li>
+</ul>
+</li> 
+<!-- End Section Level 1-->
+
+
+
+<!-- Start Section Level 1 -->
+<li class="nav-item dropdown">
+  <a class="dropdown-toggle" href="javascript:void(0);">
+    <span class="icon-holder">
+      <i> {% icon 'box' class="c-blue-500" height="18" width="18" %}</i>
+    </span>
+    <span class="title">Plan i ewidencja</span>
+    <span class="arrow">
+     <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+   </span>
+ </a>
+ <ul class="dropdown-menu">
+
+  <!-- Start Dropdown link -->
+ <!--  <li class="nav-item dropdown">
+    <a class="dropdown-toggle" href="javascript:void(0);">
+      <span class="title">I kwartał</span>
+      <span class="arrow">
+       <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+     </span>
+   </a>
+   <ul class="dropdown-menu">
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+  </ul>
+</li>  -->
+<!-- End Dropdown link -->
+
+<li>
+  <a class="sidebar-link" href="">I kwartał</a>
+</li>
+<li>
+  <a class="sidebar-link" href="">II kwartał</a>
+</li>
+
+<li>
+  <a class="sidebar-link" href="">III kwartał</a>
+</li>
+
+<li>
+  <a class="sidebar-link" href="">IV kwartał</a>
+</li>
+
+
+
+
+</ul>
+</li> 
+<!-- End Section Level 1 -->
+
+
+
+
+<!-- Start Section Level 1 -->
+<li class="nav-item dropdown">
+  <a class="dropdown-toggle" href="javascript:void(0);">
+    <span class="icon-holder">
+      <i> {% icon 'box' class="c-blue-500" height="18" width="18" %}</i>
+    </span>
+    <span class="title">Zamknięcie roku</span>
+    <span class="arrow">
+     <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+   </span>
+ </a>
+ <ul class="dropdown-menu">
+
+  <!-- Start Dropdown link -->
+  <li class="nav-item dropdown">
+    <a class="dropdown-toggle" href="javascript:void(0);">
+      <span class="title">Section Level 2</span>
+      <span class="arrow">
+       <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+     </span>
+   </a>
+   <ul class="dropdown-menu">
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+  </ul>
+</li> 
+<!-- End Dropdown link -->
+
+<li>
+  <a class="sidebar-link" href="">Section level 2</a>
+</li>
+</ul>
+</li> 
+<!-- End Section Level 1 -->
+
+
+
+<!-- Start Section Level 1 -->
+<li class="nav-item dropdown">
+  <a class="dropdown-toggle" href="javascript:void(0);">
+    <span class="icon-holder">
+      <i> {% icon 'box' class="c-blue-500" height="18" width="18" %}</i>
+    </span>
+    <span class="title">Zakończenie</span>
+    <span class="arrow">
+     <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+   </span>
+ </a>
+ <ul class="dropdown-menu">
+
+  <!-- Start Dropdown link -->
+  <li class="nav-item dropdown">
+    <a class="dropdown-toggle" href="javascript:void(0);">
+      <span class="title">Section level 2</span>
+      <span class="arrow">
+       <i> {% icon 'chevron-right' class="c-black-500" height="18" width="18" %}</i>
+     </span>
+   </a>
+   <ul class="dropdown-menu">
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="">Section Level 3</a>
+    </li>
+  </ul>
+</li> 
+<!-- End Dropdown link -->
+
+</ul>
+</li> 
+<!-- End Section Level 1 -->
+
+
+
+
+</ul>
+</div>
+</div>

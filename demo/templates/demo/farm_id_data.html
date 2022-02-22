@@ -1,0 +1,230 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+{% load icon %}
+
+{% block title %} Farm's Identification Data {% endblock title %}
+
+<!-- Specific CSS goes HERE  -->
+{% block stylesheets %}
+
+<style>
+
+
+</style>
+
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<br>
+
+<div class="conainer ml-3 mb-5">
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-lg">
+    <li class="page-item">
+      <a class="page-link" href="{% url 'dashboard:index' %}" aria-label="Previous" style="text-decoration: none; color: #5bc0de; ">
+        <span aria-hidden="true"><span class="mr-1">
+            <!-- <i class="c-blue-500 ti-home"></i> -->
+            <i> {% icon 'arrow-left-circle' class="" height="16" width="16" %}</i>
+          </span>Panel</span>
+      </a>
+    </li>
+    <li class="page-item"><a style="text-decoration: none; color: " class="page-link text-secondary" >Gospodarstwo rolne</a></li>
+        <li class="page-item">
+      <a class="page-link" href="{% url 'demo:farm_code_system' %}" aria-label="Next" style="text-decoration: none; color: #5bc0de;">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+
+
+
+<!-- Section: Farm's Identification Data Form -->
+<section>
+  <div class="container-fluid">
+    <div class="row gutters">
+
+
+
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h5 class="mb-2 text-info">Dane podstawowe</h5>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="fullName">Nazwa</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="-">
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="eMail">Numer identyfikacyjny</label>
+                  <input type="email" class="form-control" id="eMail" placeholder="-">
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="phone">Typ gospodarstwa (według TF8)</label>
+                  <input type="text" class="form-control" id="phone" placeholder="-">
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="website">Miejscowość</label>
+                  <input type="url" class="form-control" id="website" placeholder="-">
+                </div>
+              </div>
+            </div>
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="text-right">
+                  <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+<div class="card h-100">
+  <div class="card-body">
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h5 class="mb-2 text-info">Dane firmowe</h5>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="form-group">
+          <label for="Street">Nzwa firmy</label>
+          <input type="name" class="form-control" id="Street" placeholder="-">
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="form-group">
+          <label for="ciTy">NIP</label>
+          <input type="name" class="form-control" id="ciTy" placeholder="-">
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="form-group">
+          <label for="sTate">Siedziba</label>
+          <input type="text" class="form-control" id="sTate" placeholder="-">
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="form-group">
+          <label for="zIp">Forma podatku VAT</label>
+          <input type="text" class="form-control" id="zIp" placeholder="-">
+        </div>
+      </div>
+    </div>
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="text-right">
+          <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+  <div class="card h-100">
+    <div class="card-body">
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <h5 class="mt-3 mb-2 text-info">Addes gospodarstwa</h5>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="Street">Województwo</label>
+            <input type="name" class="form-control" id="Street" placeholder="-">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="ciTy">Powiat</label>
+            <input type="name" class="form-control" id="ciTy" placeholder="-">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="sTate">Gmina</label>
+            <input type="text" class="form-control" id="sTate" placeholder="-">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="ciTy">Miejscowość</label>
+            <input type="name" class="form-control" id="ciTy" placeholder="-">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="sTate">Ulica</label>
+            <input type="text" class="form-control" id="sTate" placeholder="-">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="sTate">Nr</label>
+            <input type="text" class="form-control" id="sTate" placeholder="-">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="sTate">Poczta</label>
+            <input type="text" class="form-control" id="sTate" placeholder="-">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="zIp">Kod pocztowy</label>
+            <input type="text" class="form-control" id="zIp" placeholder="-">
+          </div>
+        </div>
+      </div>
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="text-right">
+            <button type="button" id="submit" name="submit" class="btn btn-outline-info">Zmień</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

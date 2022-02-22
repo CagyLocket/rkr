@@ -1,0 +1,716 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+{% load icon %}
+
+{% block title %} T1.2 Opis ziemi dzierżawionej {% endblock title %}
+
+<!-- Specific CSS goes HERE  -->
+{% block stylesheets %}
+
+<style type="text/css">
+
+  .account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+  .account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+  }
+  .account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+  }
+  .account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+  }
+  .account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+  }
+  .account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+  }
+  .account-settings .about h5 {
+    margin: 0 0 15px 0;
+    color: #007ae1;
+  }
+  .account-settings .about p {
+    font-size: 0.825rem;
+  }
+  .form-control {
+    border: 1px solid #cfd1d8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: .825rem;
+    background: #ffffff;
+    color: #2e323c;
+  }
+
+  .card {
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+  }
+
+
+  /* Start custom colors for pills - comment */
+/*  .nav-pills.nav-pills-comment > li > a.active{
+    background-color:#e3cd4f !important;
+    color:white !important;
+  }
+
+  .nav-pills > li.active > a:hover {
+    background-color:#e3cd4f !important;
+    color:white !important;
+  }
+
+  .nav-link-color {
+    color: #5bc0de;
+
+  }*/
+  /* End custom colors for pills */
+
+
+  /* Start custom colors for pills - calendar quarters  */
+  .nav-pills.nav-pills > li > a.active{
+    background-color:#5bc0de !important;
+    color:white !important;
+  }
+
+  .nav-pills > li.active > a:hover {
+    background-color:#e3cd4f !important;
+    color:white !important;
+  }
+
+  .nav-link-color {
+    color: #5bc0de;
+
+  }
+  /* End custom colors for pills */
+
+
+
+  .btn-comment > a{
+    background-color:#e3cd4f;
+    color:white;
+  }
+
+  .btn-comment > a:hover {
+    background-color:#c6ad20;
+    color:white;
+  }
+
+  .btn-comment-add > a{
+    /*background-color:#e3cd4f;*/
+    border-color:#e3cd4f;
+    color:#c6ad20;
+  }
+
+  .btn-comment-add > a:hover {
+    background-color:#c6ad20;
+    color:white;
+  }
+
+
+  
+.pagination-modify{
+  text-decoration: none; 
+  color: #5bc0de;
+}
+
+
+
+
+</style>
+
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<br>
+
+<div class="conainer ml-3 mb-5">
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-lg">
+    <li class="page-item">
+      <a class="page-link" href="{% url 'demo:t1_1_opis_ziemi_wlasnej' %}" aria-label="Previous" style="text-decoration: none; color: #5bc0de; ">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a style="text-decoration: none; color: #5bc0de;" class="page-link" >T 1.2. Opis ziemi dzierżawionej i czynsz dzierżawny [PLN]</a></li>
+    <li class="page-item">
+      <a class="page-link" href="{% url 'demo:t1_3_ziemia_jakosc_i_uzytkowanie' %}" aria-label="Next" style="text-decoration: none; color: #5bc0de;">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+
+
+
+
+
+<!-- Section: Table -->
+<section>
+  <div class="container-fluid">
+    <div class="row gutters">
+
+      <!-- Start column card -->
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="card h-100">
+          <div class="card-body">
+           <div class="row gutters">
+
+            <!-- Start Column -->
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
+
+             <!-- Start collapse section for "Komentarz" -->
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-5 ml-3">
+
+                <ul class="list-unstyled list-inline">
+                <div class="text-left btn-comment list-inline-item">
+                  <a class="btn btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">Komentarz
+                    <span class="ml-1 justify-center">
+                    <i> {% icon 'arrow-down-circle' class="c-black-500" height="18" width="18" %}</i>
+                  </span>
+                  </a>
+                </div>
+
+                <div class=" btn-comment-add list-inline-item ml-2">
+                  <a href="#" class="btn btn" data-toggle="popover" title="Nowy komentarz:" data-content=""  role="button" aria-expanded="true">Dodaj
+                    <span class="ml-1 justify-center">
+                    <i> {% icon 'plus-circle' class="c-black-500" height="18" width="18" %}</i>
+                  </span>
+                  </a>
+                </div>
+              </ul>
+
+              </div>
+            </div><!-- end row -->
+
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  <ul class="">
+                    <li>
+                      <p class="mb-0"><span class="font-weight-bold">Wycena</span>: Czynsz dotyczy powierzchni ogółem; wpisujemy wartość czynszu za pół roku</p></li>
+                    </ul>
+                  </div>
+                </div> <!-- End collapse section for "Komentarz" -->
+
+
+                <div class="container">
+                  <div class="row gutters">
+                    <div class="col-md-12">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class="text-center">
+                            <tr>
+                              <th>#</th>
+                              <th>Działka (nr, nazwa)</th>
+                              <th>Odległość od gospod. [km]</th>
+                              <th>Klasa gleby</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-center">
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>14</td>
+                              <td></td>
+                              <td>IVb</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>15</td>
+                              <td></td>
+                              <td>IVb</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>23</td>
+                              <td></td>
+                              <td>V</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">4</th>
+                              <td>25</td>
+                              <td></td>
+                              <td>V</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">5</th>
+                              <td>32</td>
+                              <td></td>
+                              <td>IV</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">6</th>
+                              <td>36</td>
+                              <td></td>
+                              <td>IV</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">7</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">8</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">9</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">10</th>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                          <thead>
+                            <tr class="text-center">
+                              <th>Razem</th>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- End column -->
+
+            </div><!-- end row -->
+
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="text-right">
+
+                  <button type="button" id="submit" name="submit" class="btn btn-outline-info mr-3">Zmień dane</button>
+                </div>
+              </div>
+            </div><!-- end row -->
+
+
+          </div>
+        </div>
+      </div>
+      <!-- End column card -->
+
+
+      <!-- Start column card -->
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="card h-100">
+          <div class="card-body">
+
+            <div class="row gutters">
+              <!-- Start Column -->
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-1">
+                <ul class="nav nav-pills mb-4 mt-1" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link active nav-link-color" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Stan na 1.01.2020</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link nav-link-color" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Stan na 30.06.2020</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link nav-link-color" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Stan na 31.12.2020</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                    <!-- Start table container -->
+                    <div class="container">
+                      <div class="row gutters">
+                        <div class="col-md-12">
+                          <div class="table-responsive mt-4">
+                            <table class="table">
+                              <thead>
+                                <tr class="text-center">
+                                  <th>#</th>
+                                  <th>Pow. ogółem [ha]</th>
+                                  <th>Pow. UR [ha]</th>
+                                  <th>Wartość [1ha]</th>
+                                  <th>Wartość ogółem</th>
+                                </tr>
+                              </thead>
+                              <tbody class="text-center">
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>0.90</td>
+                                  <td>0.90</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>0.85</td>
+                                  <td>0.85</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>1.00</td>
+                                  <td>1.00</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">4</th>
+                                  <td>0.90</td>
+                                  <td>0.90</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">5</th>
+                                  <td>1.00</td>
+                                  <td>1.00</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">6</th>
+                                  <td>0.96</td>
+                                  <td>0.96</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">7</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">8</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">9</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">10</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                              <thead>
+                                <tr class="text-center">
+                                  <th>Razem</th>
+                                  <th class="">5.6</th>
+                                  <th>5.6</th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- End table container -->
+
+                  </div>
+
+                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+
+                    <!-- Start table container -->
+                    <div class="container">
+                      <div class="row gutters">
+                        <div class="col-md-12">
+                          <div class="table-responsive mt-4">
+                            <table class="table">
+                              <thead>
+                                <tr class="text-center">
+                                  <th>#</th>
+                                  <th>Pow. ogółem [ha]</th>
+                                  <th>Pow. UR [ha]</th>
+                                  <th>Wartość [1ha]</th>
+                                  <th>Wartość ogółem</th>
+                                </tr>
+                              </thead>
+                              <tbody class="text-center">
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>0.90</td>
+                                  <td>0.90</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>0.85</td>
+                                  <td>0.85</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>1.00</td>
+                                  <td>1.00</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">4</th>
+                                  <td>0.90</td>
+                                  <td>0.90</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">5</th>
+                                  <td>1.00</td>
+                                  <td>1.00</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">6</th>
+                                  <td>0.96</td>
+                                  <td>0.96</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">7</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">8</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">9</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">10</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                              <thead>
+                                <tr class="text-center">
+                                  <th>Razem</th>
+                                  <th class="">5.6</th>
+                                  <th>5.6</th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- End table container -->
+
+                  </div>
+
+                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                    <!-- Start table container -->
+                    <div class="container">
+                      <div class="row gutters">
+                        <div class="col-md-12">
+                          <div class="table-responsive mt-4">
+                            <table class="table">
+                              <thead>
+                                <tr class="text-center">
+                                  <th>#</th>
+                                  <th>Pow. ogółem [ha]</th>
+                                  <th>Pow. UR [ha]</th>
+                                  <th>Wartość [1ha]</th>
+                                  <th>Wartość ogółem</th>
+                                </tr>
+                              </thead>
+                              <tbody class="text-center">
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>0.90</td>
+                                  <td>0.90</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>0.85</td>
+                                  <td>0.85</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>1.00</td>
+                                  <td>1.00</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">4</th>
+                                  <td>0.90</td>
+                                  <td>0.90</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">5</th>
+                                  <td>1.00</td>
+                                  <td>1.00</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">6</th>
+                                  <td>0.96</td>
+                                  <td>0.96</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">7</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">8</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">9</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">10</th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                              <thead>
+                                <tr class="text-center">
+                                  <th>Razem</th>
+                                  <th class="">5.6</th>
+                                  <th>5.6</th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- End table container -->    
+
+                  </div>
+                </div>
+
+              </div>
+              <!-- End column -->
+
+
+            </div><!-- end row -->
+
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="text-right">
+
+                  <button type="button" id="submit" name="submit" class="btn btn-outline-info mr-3">Zmień dane</button>
+                </div>
+              </div>
+            </div><!-- end row -->
+
+          </div>
+        </div>
+      </div>
+      <!-- End column card -->
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<br><br><br><br>
+
+
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script>
+
+  // to triger popovers
+ $('#example').popover(options)
+</script>
+
+
+{% endblock javascripts %}
