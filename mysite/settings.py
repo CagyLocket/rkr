@@ -30,7 +30,7 @@ SECRET_KEY = config('dfjndfijf8d77dfuifjj434uhd7f87yh3400cx0fh68sf')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['*', 'stormy-headland-77659.com']
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # During development only
