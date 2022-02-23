@@ -196,7 +196,7 @@ BASE_URL = "http://127.0.0.1:8000"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #Local settings on the server when deployed
